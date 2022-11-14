@@ -4,7 +4,7 @@
   "description": "- DBS school homework project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/KordyDX/DBS_Authentication/issues"
   },
-  "homepage": "https://github.com/KordyDX/DBS_Authentication#readme"
+  "homepage": "https://github.com/KordyDX/DBS_Authentication#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "js-sha256": "^0.9.0",
+    "mysql": "^2.18.1"
+  }
 }
