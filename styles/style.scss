@@ -6,4 +6,32 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-body {}
+body {
+    background-color: rgb(35, 35, 35);
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    background-color: yellow;
+    border-radius: 3px;
+    border-style: solid;
+    height: 500px;
+    width: 400px;
+    & .input {
+        max-width: 400px;
+    }
+    & .submitBtn {
+        max-width: 100px;
+    }
+}
