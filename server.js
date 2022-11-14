@@ -7,6 +7,7 @@ const { sha256 } = require("js-sha256");
 const port = 3000;
 
 var tmpData;
+app.use(express.static(__dirname + '/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
