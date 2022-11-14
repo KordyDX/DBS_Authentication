@@ -4,4 +4,33 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", sans-serif;
-}/*# sourceMappingURL=style.css.map */
+}
+
+body {
+  background-color: rgb(35, 35, 35);
+}
+
+.formBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  border-radius: 3px;
+  border-style: solid;
+  height: 500px;
+  width: 400px;
+}
+.form .input {
+  max-width: 400px;
+}
+.form .submitBtn {
+  max-width: 100px;
+}
