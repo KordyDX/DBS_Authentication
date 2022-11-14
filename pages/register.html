@@ -10,13 +10,32 @@
 </head>
 
 <body>
-    <form action="">
-        <input type="email" placeholder="Email">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <input type="password" placeholder="Confirm password">
+    <form action="/registerUser" method="post">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" onChange="onChange()" required>
+        <input type="password" name="confirm" placeholder="Confirm password" onChange="onChange()" required>
+        <select id="types" name="type">
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+            <option value="Platinum">Platinum</option>
+          </select>
         <button type="submit">Register</button>
     </form>
+
+    <a href="/"><- Go Back</a>
+
+    <script>
+        function onChange() {
+            const password = document.querySelector('input[name=password]');
+            const confirm = document.querySelector('input[name=confirm]');
+            if (confirm.value === password.value) {
+                confirm.setCustomValidity('');
+            } else {
+                confirm.setCustomValidity('Passwords do not match');
+            }
+        }
+    </script>
 </body>
 
 </html>
