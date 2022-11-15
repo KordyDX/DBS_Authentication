@@ -10,32 +10,37 @@
 </head>
 
 <body>
-    <form action="/registerUser" method="post">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" onChange="onChange()" required>
-        <input type="password" name="confirm" placeholder="Confirm password" onChange="onChange()" required>
-        <select id="types" name="type">
-            <option value="Silver">Silver</option>
-            <option value="Gold">Gold</option>
-            <option value="Platinum">Platinum</option>
-          </select>
-        <button type="submit">Register</button>
-    </form>
+    <div class="formBoxParent">
+        <div class="formBox">
+            <form action="/registerUser" method="post" class="form">
+                <input type="email" name="email" placeholder="Email" required title="Your Email Address">
+                <input type="text" name="username" placeholder="Username" required title="Your Desired Username">
+                <input type="password" name="password" placeholder="Password" onChange="onChange()" required title="Your Desired Password">
+                <input type="password" name="confirm" placeholder="Confirm" onChange="onChange()" required title="Confirm Your Password">
+                <select id="types" name="type" title="Choose Account Tier">
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Platinum">Platinum</option>
+                </select>
+                <button type="submit" class="submitBtn">Register</button>
+            </form>
+        </div>
+    </div>
 
-    <a href="/"><- Go Back</a>
+    <a href="/">
+        <- Go Back</a>
 
-    <script>
-        function onChange() {
-            const password = document.querySelector('input[name=password]');
-            const confirm = document.querySelector('input[name=confirm]');
-            if (confirm.value === password.value) {
-                confirm.setCustomValidity('');
-            } else {
-                confirm.setCustomValidity('Passwords do not match');
-            }
-        }
-    </script>
+            <script>
+                function onChange() {
+                    const password = document.querySelector('input[name=password]');
+                    const confirm = document.querySelector('input[name=confirm]');
+                    if (confirm.value === password.value) {
+                        confirm.setCustomValidity('');
+                    } else {
+                        confirm.setCustomValidity('Passwords do not match');
+                    }
+                }
+            </script>
 </body>
 
 </html>
