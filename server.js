@@ -4,10 +4,17 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const { sha256 } = require("js-sha256");
+const jwt = require("jsonwebtoken");
+
 const port = 3000;
 
-var tmpData;
-app.use(express.static(__dirname + '/'));
+var tmpData = {
+  State: "notLogged",
+  Name: "",
+  Type: "",
+  Email: "",
+};
+app.use(express.static(__dirname + "/"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
@@ -29,23 +36,38 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
-  if (!tmpData) {
-    res.render("error", { ErrorMsg: "Please log in first.", Route: "/" });
-  } else {
-    res.render("profile", { data: tmpData });
+  if (tmpData.State !== "loggedIn") {
+    tmpData = {
+      State: "notLogged",
+      Name: "",
+      Type: "",
+      Email: "",
+    };
   }
+
+  res.render("profile", { data: tmpData });
+  tmpData.State = "notLogged"
+});
+
+app.get("/errorLogin", (req, res) => {
+  res.render("error", { ErrorMsg: "Please log in first.", Route: "/" });
 });
 
 app.get("/logout", (req, res) => {
-  tmpData = null;
+  tmpData = {
+    State: "notLogged",
+    Name: "",
+    Type: "",
+    Email: "",
+  };
   res.redirect("/");
 });
 
 app.post("/registerUser", async (req, res) => {
   let data = {
+    State: "loggedIn",
     Name: req.body.username,
     Password: sha256(req.body.password),
-    RawPassword: req.body.password,
     Email: req.body.email,
     Type: req.body.type,
   };
@@ -85,6 +107,7 @@ app.post("/login", async (req, res) => {
         result[0].RawPassword = pass;
         if (result) {
           tmpData = result[0];
+          tmpData.State = "loggedIn"
           res.redirect("/profile");
         } else {
           res.redirect("/register");
@@ -97,5 +120,5 @@ app.post("/login", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });

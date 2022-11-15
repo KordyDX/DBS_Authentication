@@ -2,21 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
-    <title>Profile of <%= data.Name %></title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <title id="title">Profile
+    </title>
 </head>
 
 <body>
-    <%= data.Name %>
-    <%= data.Email %>
-    <%= data.Type %>
-    <%= data.Password %>
-    <%= data.RawPassword %>
+    <div id="app">
+        <span id="name"></span>
+        <span id="email"></span>
+        <span id="type"></span>
+    </div>
+    <a href="/logout" onclick="localStorage.clear();">
+        <- Logout</a>
 
-    <a href="/logout"><- Logout</a>
+            <script>
+                var ClientData = {};
+
+                if ("<%= data.State %>" == "notLogged" && localStorage.getItem("loggedIn") === null) {
+                    window.location.replace("/errorLogin");
+                } else {
+
+                    if (localStorage.getItem("loggedIn") === null) {
+
+                        ClientData.Email = "<%= data.Email %>";
+                        ClientData.Name = "<%= data.Name %>";
+                        ClientData.Type = "<%= data.Type %>";
+
+                        localStorage.setItem("loggedIn", true);
+                        localStorage.setItem("email", ClientData.Email);
+                        localStorage.setItem("type", ClientData.Type);
+                        localStorage.setItem("name", ClientData.Name);
+                    } else {
+
+                        ClientData = {
+                            Email: localStorage.getItem("email"),
+                            Name: localStorage.getItem("name"),
+                            Type: localStorage.getItem("type")
+                        }
+                    }
+
+                    document.getElementById("title").innerHTML = "Profile of " + ClientData.Name
+                    document.getElementById("name").innerHTML = ClientData.Name
+                    document.getElementById("email").innerHTML = ClientData.Email
+                    document.getElementById("type").innerHTML = ClientData.Type
+                }
+
+            </script>
 </body>
 
 </html>

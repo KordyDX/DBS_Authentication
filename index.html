@@ -20,6 +20,12 @@
             <a href="/register">Not registered yet?</a>
         </form>
     </div>
+
+    <script>
+        if (localStorage.getItem("loggedIn") == "true") {
+            window.location.replace("/profile");
+        }
+    </script>
 </body>
 
 </html>
