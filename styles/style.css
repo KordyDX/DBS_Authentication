@@ -23,7 +23,15 @@ body {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+}
+.form .collab {
+  width: 120px;
+  height: 120px;
 }
 .form input {
   width: 250px;
@@ -31,21 +39,72 @@ body {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   padding-left: 10px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+}
+.form input:focus::-moz-placeholder {
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  color: transparent;
+}
+.form input:focus:-ms-input-placeholder {
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  color: transparent;
+}
+.form input:focus::placeholder {
+  transition: 0.3s;
+  color: transparent;
+}
+.form input[type=email], .form input[type=text], .form input[type=password] {
+  outline: none;
 }
 .form .submitBtn {
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 1px;
   width: 250px;
   height: 50px;
   font-family: "Open Sans", sans-serif;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.form .submitBtn:hover {
+  cursor: pointer;
+}
+.form .submitBtn:hover {
+  transition: 0.2s;
+  transform: scale(1.05);
 }
 .form a {
   color: black;
   text-decoration: none;
 }
 .form select {
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 1px;
+  outline: none;
   width: 250px;
   height: 50px;
   font-family: "Open Sans", sans-serif;
   padding-left: 10px;
+  border-style: solid;
+  border-radius: 5px;
+}
+.form select:hover {
+  cursor: pointer;
+}
+.form select .Silver {
+  color: rgb(151, 151, 151);
+}
+.form select .Gold {
+  color: gold;
+}
+.form select .Platinum {
+  color: rgb(62, 110, 110);
 }
 
 .formBoxParent {
@@ -53,4 +112,42 @@ body {
   width: 100vw;
   justify-content: center;
   height: 100vh;
-}/*# sourceMappingURL=style.css.map */
+}
+
+#app {
+  display: flex;
+  flex-flow: column;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
+  gap: 10px;
+}
+#app p {
+  padding: 0;
+  margin: 0;
+}
+#app .logout {
+  background-color: #EFEFEF;
+  align-self: center;
+  color: black;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.appResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.appResultsParent {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  height: 100vh;
+}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 html,
 body {
     padding: 0;
@@ -23,28 +24,92 @@ body {
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 7px rgb(0, 0, 0, 0.25);
+
+    & .collab {
+        width: 120px;
+        height: 120px;
+    }
+
     & input {
         width: 250px;
         height: 50px;
         box-sizing: border-box;
         font-family: 'Open Sans', sans-serif;
         padding-left: 10px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        background-color: transparent;
     }
+
+    & input:focus::placeholder {
+        transition: 0.3s;
+        color: transparent;
+    }
+
+    & input[type="email"],
+    & input[type="text"],
+    & input[type="password"] {
+        outline: none;
+    }
+
+
     & .submitBtn {
+        border-style: solid;
+        box-sizing: border-box;
+        border-width: 1px;
         width: 250px;
         height: 50px;
         font-family: 'Open Sans', sans-serif;
+        border-radius: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+        transition: 0.2s;
+        &:hover {
+            transition: 0.2s;
+            transform: scale(1.05);
+        }
     }
+
     & a {
         color: black;
         text-decoration: none;
     }
+
     & select {
+        border-style: solid;
+        box-sizing: border-box;
+        border-width: 1px;
+        outline: none;
         width: 250px;
         height: 50px;
         font-family: 'Open Sans', sans-serif;
         padding-left: 10px;
+        border-style: solid;
+        border-radius: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        & .Silver {
+            color: rgb(151, 151, 151);
+        }
+
+        & .Gold {
+            color: gold;
+        }
+
+        & .Platinum {
+            color: rgb(62, 110, 110);
+        }
     }
 }
 
@@ -54,3 +119,42 @@ body {
     justify-content: center;
     height: 100vh;
 }
+
+#app {
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 7px rgb(0, 0, 0, 0.25);
+    gap: 10px;
+    & p {
+        padding: 0;
+        margin: 0;
+    }
+    & .logout {
+        background-color: #EFEFEF;
+        align-self: center;
+        color: black;
+        text-decoration: none;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+}
+
+.appResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.appResultsParent {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    height: 100vh;
+}
+

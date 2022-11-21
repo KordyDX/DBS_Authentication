@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/style.css" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../styles/style.css" />
 
-    <title id="title">Profile
-    </title>
-</head>
+        <title id="title">Profile
+        </title>
+    </head>
 
-<body>
-    <div id="app">
-        <span id="name"></span>
-        <span id="email"></span>
-        <span id="type"></span>
-    </div>
-    <a href="/logout" onclick="localStorage.clear();">
-        <- Logout</a>
+    <body>
+        <div class="appResultsParent">
+            <div class="appResults">
+                <div id="app">
+                    <p class="username">Username: <span id="name"></span></p>
+                    <p>Email: <span id="email"></span></p>
+                    <p class="account">Account Tier: <span id="type"></span></p>
+                    <a href="/logout" onclick="localStorage.clear();" class="logout">Logout</a>
+                </div>
+            </div>
+        </div>
 
-            <script>
+
+        <script>
                 var ClientData = {};
 
                 if ("<%= data.State %>" == "notLogged" && localStorage.getItem("loggedIn") === null) {
@@ -53,6 +57,6 @@
                 }
 
             </script>
-</body>
+    </body>
 
 </html>
